@@ -24,3 +24,4 @@ six==1.16.0
 pyparsing==3.0.9
 sqlparse==0.4.4
 typing_extensions==4.7.1
+gunicorn==21.2.0
