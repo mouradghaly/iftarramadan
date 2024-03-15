@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+        
+        section {
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        
+        ol {
+            padding: 0;
+            margin: 0;
+        }
+        
+        li {
+            list-style: none;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        button {
+            display: inline-block;
+            margin: 10px 5px;
+            padding: 10px 20px;
+            background-color: #28a745; /* Green */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #218838; /* Darker green */
+        }
+    </style>
+</head>
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        const troisième = document.getElementById("troisième");
+        const seconde = document.getElementById("seconde");
+        const première = document.getElementById("première");
+        const terminale = document.getElementById("terminale");
+
+        document.getElementById("3ème").style.display = 'none';
+        document.getElementById("Seconde").style.display = 'none';
+        document.getElementById("1ère").style.display = 'none';
+        document.getElementById("Terminale").style.display = 'none';
+
+        troisième.addEventListener('click', function(){
+            document.getElementById("3ème").style.display = 'block';
+
+            document.getElementById("Seconde").style.display = 'none';
+            document.getElementById("1ère").style.display = 'none';
+            document.getElementById("Terminale").style.display = 'none';
+        });
+
+        seconde.addEventListener('click', function(){
+            document.getElementById('Seconde').style.display = 'block';
+
+            document.getElementById("3ème").style.display = 'none';
+            document.getElementById("1ère").style.display = 'none';
+            document.getElementById("Terminale").style.display = 'none';
+        });
+
+        première.addEventListener('click', function(){
+            document.getElementById('1ère').style.display = 'block';
+            document.getElementById('Seconde').style.display = 'none';
+            document.getElementById("Terminale").style.display = 'none';
+            document.getElementById("3ème").style.display = 'none';
+        });
+
+        terminale.addEventListener('click', function(){
+            document.getElementById('Terminale').style.display = 'block';
+            document.getElementById('1ère').style.display = 'none';
+            document.getElementById('Seconde').style.display = 'none';
+            document.getElementById("3ème").style.display = 'none';
+        });
+    });
+</script>
+<body>
+    <h1>List of Participants</h1>
+    <section id="3ème">
+        <ol>
+            {% for person in my_model %}
+            {% if person.classe == "3ème" %}
+            <li>{{ person.name }} {{person.lastname}} {{ person.email }}</li>
+            {% endif %}
+            {% endfor %}
+        </ol>  
+    </section>
+
+    <section id="Seconde">
+        <ol>
+            {% for person in my_model %}
+            {% if person.classe == "2nde" %}
+            <li>{{ person.name }} {{person.lastname}} {{ person.email }}</li>
+            {% endif %}
+            {% endfor %}
+        </ol>
+    </section>
+
+    <section id="1ère">
+        <ol>
+            {% for person in my_model %}
+            {% if person.classe == "1ère" %}
+            <li>{{ person.name }} {{person.lastname}} {{ person.email }}</li>
+            {% endif %}
+            {% endfor %}
+        </ol>  
+    </section>
+
+    <section id="Terminale">
+        <ol>
+            {% for person in my_model %}
+                {% if person.classe == "Terminale" %}
+                    <li>{{ person.name }} {{person.lastname}} {{ person.email }}</li>
+                {% endif %}
+            {% endfor %}
+        </ol>   
+    </section>
+    <button id="troisième">3ème</button>
+    <button id="seconde">Seconde</button>
+    <button id="première">1ère</button>
+    <button id="terminale">Terminale</button>
+</body>
+</html>
