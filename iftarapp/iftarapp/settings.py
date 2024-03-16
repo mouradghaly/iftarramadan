@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'iftarapp.wsgi.py'
+WSGI_APPLICATION = 'iftarapp.wsgi.application'
 
 
 # Database
