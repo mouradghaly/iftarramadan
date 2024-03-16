@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <script>src="https://ajax.googleapis.com/ajax/libs/jquery//3.5.1/jquery.min/js"</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            $.ajax({
+                url: '127.0.0.1:8000/registration/authenticate',
+                type: "GET",
+                success: function(response){
+                    if (response.authenticated){
+                       element = document.getElementById('form');
+                       element.style.display = "none";
+                    }
+                }
+            })
+        })
+    </script>
+    <body>
+        <form id="form" method="post">
+            {%csrf_token%}
+            {{authn}}  
+            <button type="submit">Login</button>
+        </form>
+        
+    </body>
+</html>
