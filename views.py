@@ -12,7 +12,7 @@ class reg(forms.Form):
     ('2nde', '2nde',),
     ('1ère', '1ère',),
     ('Terminale', 'Terminale',),
-    ('Professeur', 'Professeur')
+    ('Professeur/Personnel Administratif', 'Professeur')
 ]
     classe = forms.ChoiceField(choices= classchoice,widget=forms.Select(attrs={"class": "classe"}))
 form = reg
